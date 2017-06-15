@@ -64,14 +64,16 @@
         android:textColor="#ffffff"
         android:background="#000000"
         android:textAllCaps="true"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        android:id="@+id/login"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SignUp"
         android:textAllCaps="true"
         android:textColor="#ffffff"
-        android:background="#000000"/>
+        android:background="#000000"
+        android:id="@+id/signup"/>
     </LinearLayout>
 
 </LinearLayout>
