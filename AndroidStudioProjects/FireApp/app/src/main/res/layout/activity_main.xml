@@ -10,13 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.shubham16598.fireapp.MainActivity">
 
-    <Button
-        android:text="Button"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editText"
+        android:hint="Enter your name..." />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/addString"
         android:elevation="0dp"
-        tools:text="Add value to firebase" />
+        tools:text="Add value to firebase"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
