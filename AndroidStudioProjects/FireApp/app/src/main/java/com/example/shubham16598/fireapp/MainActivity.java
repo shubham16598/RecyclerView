@@ -7,20 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.jar.Attributes;
 
 public class MainActivity extends AppCompatActivity {
     public DatabaseReference mdatabase;
     Button b1;
     EditText e1;
     EditText e2;
+    TextView t1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +58,23 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
+            }
+        });
+
+        //Retrieving Data from firebase...
+
+        mdatabase = FirebaseDatabase.getInstance().getReference().child("Name");
+        t1 = (TextView)findViewById(R.id.name_view);
+        mdatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue().toString();
+                t1.setText("Name :"+ name);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
