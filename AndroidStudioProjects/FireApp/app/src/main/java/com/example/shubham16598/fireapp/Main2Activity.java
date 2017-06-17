@@ -17,6 +17,7 @@ public class Main2Activity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private ListView l1;
     private ArrayList<String> mUsername = new ArrayList<>();
+    private ArrayList<String> mkeys = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +34,20 @@ public class Main2Activity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
             String value = dataSnapshot.getValue(String.class);
                 mUsername.add(value);
+                String key = dataSnapshot.getKey();
+                mkeys.add(key);
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                String value = dataSnapshot.getValue(String.class);
+                String key = dataSnapshot.getKey();
+                int index = mkeys.indexOf(key);
+                mUsername.set(index,value);
+                arrayAdapter.notifyDataSetChanged();
+
 
             }
 
