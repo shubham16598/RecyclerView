@@ -1,5 +1,6 @@
 package com.example.shubham16598.fireapp;
 
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
     EditText e1;
     EditText e2;
     TextView t1;
+    Button b2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         b1= (Button)findViewById(R.id.addString);
+        b2= (Button)findViewById(R.id.button3);
         e1= (EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Retrieving Data from firebase...
 
-        mdatabase = FirebaseDatabase.getInstance().getReference().child("Name");
+      /*  mdatabase = FirebaseDatabase.getInstance().getReference().child("Name");
         t1 = (TextView)findViewById(R.id.name_view);
         mdatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        }); */
+        //ye first method h data retrieve krne ka kisi child ka...for eg..here child name is "Name"
+
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(i);
             }
         });
 
